@@ -30,7 +30,7 @@ from matplotlib import pyplot as plt
 from dataclasses import dataclass, astuple
 from typing import Optional, Tuple
 
-from nifty.gridder import drop_to_numpy
+from daliuge_component_nifty.ms import drop_to_numpy
 
 from dlg import droputils, utils
 from dlg.drop import BarrierAppDROP, BranchAppDrop, ContainerDROP
@@ -38,7 +38,6 @@ from dlg.meta import dlg_float_param, dlg_string_param
 from dlg.meta import dlg_bool_param, dlg_int_param
 from dlg.meta import dlg_component, dlg_batch_input
 from dlg.meta import dlg_batch_output, dlg_streaming_input
-from dlg.apps.numpy import load_from_numpy_drop, save_to_numpy_drop
 from dlg.meta import (dlg_batch_input, dlg_batch_output, dlg_component,
                       dlg_float_param, dlg_int_param, dlg_streaming_input,
                       dlg_string_param, dlg_bool_param)

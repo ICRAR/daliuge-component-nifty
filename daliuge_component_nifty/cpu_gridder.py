@@ -23,7 +23,7 @@ import io
 import numpy as np
 import ducc0
 
-from .ms import drop_to_numpy, numpy_to_drop
+from daliuge_component_nifty.ms import drop_to_numpy, numpy_to_drop
 
 from dlg.drop import BarrierAppDROP
 from dlg.meta import (dlg_batch_input, dlg_batch_output, dlg_component,

@@ -40,7 +40,6 @@ from dlg.meta import dlg_float_param, dlg_string_param
 from dlg.meta import dlg_bool_param, dlg_int_param
 from dlg.meta import dlg_component, dlg_batch_input
 from dlg.meta import dlg_batch_output, dlg_streaming_input
-from dlg.apps.numpy import load_from_numpy_drop, save_to_numpy_drop
 from dlg.meta import (dlg_batch_input, dlg_batch_output, dlg_component,
                       dlg_float_param, dlg_int_param, dlg_streaming_input,
                       dlg_string_param, dlg_bool_param)
@@ -147,7 +146,7 @@ class MSReadApp(BarrierAppDROP):
                     .getcol("COL")[opt.slicer]\
                     .squeeze()\
                     .astype(opt.dtype)
-                save_to_numpy_drop(outputDrop, data)
+                numpy_to_drop(outputDrop, data)
 
 
 ##
@@ -206,7 +205,7 @@ class MSCopyUpdateApp(BarrierAppDROP):
                 inputDrop = self.inputs[i+port_offset]
                 table = portOptions[i][0]
                 name = portOptions[i][1]
-                data = load_from_numpy_drop(inputDrop)
+                data = drop_to_numpy(inputDrop)
                 num_rows = data.shape[0] if self.num_rows is None else self.num_rows
                 table.col(name).putcol(data, startrow=self.start_row, nrow=num_rows)
 
@@ -258,5 +257,5 @@ class MSUpdateApp(BarrierAppDROP):
             inputDrop = self.inputs[i+port_offset]
             table = portOptions[i][0]
             name = portOptions[i][1]
-            data = load_from_numpy_drop(inputDrop)
+            data = drop_to_numpy(inputDrop)
             table.col(name).putcol(data)

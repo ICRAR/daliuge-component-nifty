@@ -123,7 +123,6 @@ class MSReadApp(BarrierAppDROP):
         msm = casacore.tables.table(self.ms_path, readonly=True)
         mssw = casacore.tables.table(msm.getkeyword("SPECTRAL_WINDOW"), readonly=True)
 
-        self.row_limit = self.row_end - self.row_start
         # slice: (baseline, channels, pols)
         row_range = (self.row_start, self.row_end)
         no_range = (0, -1)

@@ -3,7 +3,8 @@ __package__ = "daliuge_component_nifty"
 from dlg import droputils, utils
 
 # extend the following as required
-from .appComponents import MyAppDROP
-from .dataComponents import MyDataDROP
+#from .cpu_gridder import MS2DirtyApp
+from .cpu_gridder import MS2DirtyApp, Dirty2MSApp
+from .cuda_gridder import CudaMS2DirtyApp, CudaDirty2MSApp
 
-__all__ = ["MyAppDROP", "MyDataDROP"]
+__all__ = ["MS2DirtyApp", "Dirty2MSApp", "CudaMS2DirtyApp", "CudaDirty2MSApp"]

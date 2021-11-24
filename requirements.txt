@@ -1,2 +1,4 @@
 daliuge-engine>=2.0
 daliuge-translator>=2.0
+git+https://gitlab.com/ska-telescope/sdp/ska-gridder-nifty-cuda.git@thread-safe-python#subdirectory=python
+git+https://gitlab.mpcdf.mpg.de/mtr/ducc@ducc0

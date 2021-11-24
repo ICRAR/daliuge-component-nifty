@@ -1,4 +1,4 @@
-# my_awesome_component
+# daliuge_component_nifty
 
 [![codecov](https://codecov.io/gh/ICRAR/daliuge-component-nifty/branch/main/graph/badge.svg?token=daliuge-component-nifty_token_here)](https://codecov.io/gh/ICRAR/daliuge-component-nifty)
 [![CI](https://github.com/ICRAR/daliuge-component-nifty/actions/workflows/main.yml/badge.svg)](https://github.com/ICRAR/daliuge-component-nifty/actions/workflows/main.yml)
@@ -16,7 +16,7 @@ pip install my_component
 ## Usage
 
 ```py
-from my_component import MyAppDROP
+from daliuge_component_nifty import MyAppDROP
 
 MyAppDROP('a','a').run()
 ```

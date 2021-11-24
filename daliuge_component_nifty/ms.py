@@ -107,7 +107,7 @@ class MSReadApp(BarrierAppDROP):
                                    [dlg_batch_input('binary/*', [])],
                                    [dlg_batch_output('binary/*', [])],
                                    [dlg_streaming_input('binary/*')])
-    row_start = dlg_int_param('row_start', None)
+    row_start = dlg_int_param('row_start', 0)
     row_end = dlg_int_param('row_end', None)
     pol_start = dlg_int_param('pol_start', 0)
     pol_end = dlg_int_param('pol_end', None)
@@ -121,9 +121,11 @@ class MSReadApp(BarrierAppDROP):
         msm = casacore.tables.table(self.ms_path, readonly=True)
         mssw = casacore.tables.table(msm.getkeyword("SPECTRAL_WINDOW"), readonly=True)
 
-        # slice: (baseline, channels, pols)
+        if self.row_end == None:
+            self.row_end = -1
         row_range = (self.row_start, self.row_end)
-        no_range = (0, -1)
+        
+        # (baseline, channels, pols)
         tensor_slice = (slice(0, None), slice(0, None), slice(self.pol_start, self.pol_end))
 
         # table, name, dtype, slicer

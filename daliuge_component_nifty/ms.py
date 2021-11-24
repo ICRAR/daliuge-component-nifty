@@ -133,7 +133,7 @@ class MSReadApp(BarrierAppDROP):
             PortOptions(msm,  "UVW",                                                "float64",    row_range,   tensor_slice[0]),
             PortOptions(mssw, "CHAN_FREQ",                                          "float64",    (0, -1),     tensor_slice[1]),
             PortOptions(msm,  "REPLACEMASKED(DATA[FLAG||ANTENNA1==ANTENNA2], 0)",   "complex128", row_range,   tensor_slice),
-            PortOptions(msm,  "REPLACEMASKED(WEIGHT_SPECTRUM[FLAG])",               "float64",    row_range,   tensor_slice),
+            PortOptions(msm,  "REPLACEMASKED(WEIGHT_SPECTRUM[FLAG], 0)",            "float64",    row_range,   tensor_slice),
             PortOptions(msm,  "FLAG",                                               "bool",       row_range,   tensor_slice),
             PortOptions(msm,  "WEIGHT",                                             "float64",    row_range,   tensor_slice[0]),
         ]

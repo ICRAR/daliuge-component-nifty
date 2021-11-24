@@ -115,7 +115,7 @@ class MSReadApp(BarrierAppDROP):
     pol_end = dlg_int_param('pol_end', None)
 
     def run(self):
-        if len(self.inputs) > 0:
+        if len(self.inputs) < 1:
             raise DaliugeException(f"MSReadApp has {len(self.inputs)} input drops but requires at least 1")
         self.ms_path = self.inputs[0].path
         assert os.path.exists(self.ms_path)

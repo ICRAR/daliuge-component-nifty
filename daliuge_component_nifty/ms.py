@@ -70,8 +70,6 @@ class PortOptions:
     name: str
     dtype: str
     rows: range
-    flg: Optional[int]
-    autoc: Optional[int]
     slicer: Tuple[slice]
 
 ##

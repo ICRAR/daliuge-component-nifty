@@ -1,11 +1,20 @@
 import pytest
 import numpy as np
 
+from dlg.exceptions import DaliugeException
 from daliuge_component_nifty import MS2DirtyApp, CudaMS2DirtyApp, CudaDirty2MSApp
 from daliuge_component_nifty.ms import MSReadApp, numpy_to_drop
 from dlg.drop import InMemoryDROP
 
 given = pytest.mark.parametrize
+
+
+def test_MS2DirtyApp_exceptions():
+    app = MS2DirtyApp("a", "a")
+
+    with pytest.raises(DaliugeException) as e:
+        app.run()
+
 
 def test_MS2DirtyApp():
     app = MS2DirtyApp("a", "a")
@@ -49,10 +58,16 @@ def test_MS2DirtyApp():
     weight_spectrum_drop = InMemoryDROP("weight_spectrum", "weight_spectrum")
     numpy_to_drop(weight_spectrum, weight_spectrum_drop)
     app.addInput(weight_spectrum_drop)
-
     app.addOutput(InMemoryDROP("image", "image"))
 
     app.run()
+
+
+def test_CudaMS2DirtyApp_exceptions():
+    app = CudaMS2DirtyApp("a", "a")
+
+    with pytest.raises(DaliugeException) as e:
+        app.run()
 
 
 def test_CudaMS2DirtyApp():

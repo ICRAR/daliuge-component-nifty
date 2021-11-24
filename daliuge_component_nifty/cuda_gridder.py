@@ -21,10 +21,10 @@
 #
 import io
 import numpy as np
+
 import wagg
-
 from daliuge_component_nifty.ms import drop_to_numpy, numpy_to_drop
-
+from dlg.exceptions import DaliugeException
 from dlg.drop import BarrierAppDROP
 from dlg.meta import (dlg_batch_input, dlg_batch_output, dlg_component,
                       dlg_float_param, dlg_int_param, dlg_streaming_input,
@@ -72,6 +72,8 @@ class CudaMS2DirtyApp(BarrierAppDROP):
     pixsize_y = dlg_float_param('pixsize_y', None)
 
     def run(self):
+        if len(self.inputs) < 4:
+            raise DaliugeException(f"CudaDirt2MsApp has {len(self.inputs)} input drops but requires at least 4")
         uvw = drop_to_numpy(self.inputs[0])
         freq = drop_to_numpy(self.inputs[1])
         vis = drop_to_numpy(self.inputs[2])
@@ -190,6 +192,9 @@ class CudaNiftyApp(BarrierAppDROP):
     polarization = dlg_int_param('polarization', 0)
 
     def run(self):
+        if len(self.inputs) < 4:
+            raise DaliugeException(f"CudaDirt2MsApp has {len(self.inputs)} input drops but requires at least 4")
+
         if self.pixsize_x == None:
             self.pixsize_x = 1.0 / self.npix_x
         if self.pixsize_y == None:

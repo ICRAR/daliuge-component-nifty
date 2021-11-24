@@ -36,6 +36,7 @@ from typing import Optional, Tuple
 
 from dlg import droputils, utils
 from dlg.drop import BarrierAppDROP, BranchAppDrop, ContainerDROP
+from dlg.exceptions import DaliugeException
 from dlg.meta import dlg_float_param, dlg_string_param
 from dlg.meta import dlg_bool_param, dlg_int_param
 from dlg.meta import dlg_component, dlg_batch_input

@@ -146,7 +146,7 @@ class MSReadApp(BarrierAppDROP):
                     .getcol("COL")[opt.slicer]\
                     .squeeze()\
                     .astype(opt.dtype)
-                numpy_to_drop(outputDrop, data)
+                numpy_to_drop(data, outputDrop)
 
 
 ##

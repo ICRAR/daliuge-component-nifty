@@ -1,5 +1,6 @@
 daliuge-engine>=2.0
 daliuge-translator>=2.0
-numpy>=1.20.0
+numpy>=1.21.0
+python-casacore>=3.4.0
 ducc0>=0.21.0
 wagg @ git+https://gitlab.com/ska-telescope/sdp/ska-gridder-nifty-cuda.git@thread-safe-python#subdirectory=python
